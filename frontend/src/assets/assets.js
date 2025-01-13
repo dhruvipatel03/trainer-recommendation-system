@@ -10,6 +10,7 @@ import info_icon from './info_icon.svg'
 import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
+import logo from './logo.png'
 import tutor1 from './tutor1.jpg'
 import tutor2 from './tutor2.jpg'
 import tutor3 from './tutor3.jpg'
@@ -31,6 +32,7 @@ import tutor16 from './tutor16.jpg'
 export const assets = {
     group_profiles,
     chats_icon,
+    logo,
     verified_icon,
     info_icon,
     profile_pic,
