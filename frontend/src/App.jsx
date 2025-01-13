@@ -1,6 +1,13 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
+import Trainers from './pages/Trainers'
+import Login from './pages/Login'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Myprofile from './pages/Myprofile'
+import Myappointments from './pages/Myappointments'
+import Appointment from './pages/Appointment'
 
 function App() {
   return (
