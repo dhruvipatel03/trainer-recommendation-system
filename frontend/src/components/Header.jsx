@@ -21,14 +21,14 @@ const Header = () => {
                 Simply browse through our extensive list of <br className='hidden sm:block' /> trusted tutors, schedule your appointment hassle-free.
               </p>
             </div>
-            <a href=""  className="text-sm md:text-base">
-               Book appointment <img src={arrow_icon} alt="" />
+            <a href=""  className="flex items-center gap-2 bg-white px-8 py-3 rounded-full text-gray-600 text-sm hover:scale-105 transition-all duration-300">
+               Book appointment <img className='w-3' src={arrow_icon} alt="" />
             </a>
         </div>
 
         {/* ------Right Side------- */}
             <div className='md:w-1/2 relative'>
-              <img  className='w-full md:absolute bottom-0 h-auto rounded-lg' src={tutors} alt="" />
+              <img  style={{ width: '65%' }} className='md:absolute bottom-0 left-1/2 transform -translate-x-1/2 h-auto rounded-lg' src={tutors} alt="" />
             </div>
     </div>
   )
