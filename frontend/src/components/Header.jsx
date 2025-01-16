@@ -21,7 +21,7 @@ const Header = () => {
                 Simply browse through our extensive list of <br className='hidden sm:block' /> trusted tutors, schedule your appointment hassle-free.
               </p>
             </div>
-            <a href=""  className="flex items-center gap-2 bg-white px-8 py-3 rounded-full text-gray-600 text-sm hover:scale-105 transition-all duration-300">
+            <a href="#speciality"  className="flex items-center gap-2 bg-white px-8 py-3 rounded-full text-gray-600 text-sm hover:scale-105 transition-all duration-300">
                Book appointment <img className='w-3' src={arrow_icon} alt="" />
             </a>
         </div>
