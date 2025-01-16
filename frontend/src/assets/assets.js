@@ -1,10 +1,5 @@
-// import appointment_img from './appointment_img.png'
-// import header_img from './header_img.png'
 import group_profiles from './group_profiles.png'
 import profile_pic from './profile_pic.png'
-// import contact_image from './contact_image.png'
-// import about_image from './about_image.png'
-// import logo from './logo.svg'
 import dropdown_icon from './dropdown_icon.svg'
 import menu_icon from './menu_icon.svg'
 import cross_icon from './cross_icon.png'
@@ -31,21 +26,21 @@ import tutor13 from './tutor13.jpg'
 import tutor14 from './tutor14.jpg'
 import tutor15 from './tutor15.jpg'
 import tutor16 from './tutor16.jpg'
-
+import Biology from './Biology.png'
+import Physics from './Physics.png'
+import Maths from './Maths.png'
+import Literature from '../assets/Literature.png'
+import Chemistry from './Chemistry.png'
+import Es from './Es.png'
 
 
 export const assets = {
-    appointment_img,
-    header_img,
     group_profiles,
-    logo,
     chats_icon,
     verified_icon,
     info_icon,
     profile_pic,
     arrow_icon,
-    contact_image,
-    about_image,
     menu_icon,
     cross_icon,
     dropdown_icon,
@@ -57,27 +52,27 @@ export const assets = {
 export const specialityData = [
     {
         speciality: 'Biology',
-        image: assets.Biology,
+        image:Biology,
     },
     {
         speciality: 'Physics',
-        image: assets.Physics,
+        image:Physics,
     },
     {
         speciality: 'Mathematics',
-        image: assets.Maths,
+        image: Maths,
     },
     {
         speciality: 'Literature',
-        image: assets.Literature,
+        image: Literature,
     },
     {
         speciality: 'Chemistry',
-        image: assets.Chemistry,
+        image: Chemistry,
     },
     {
         speciality: 'Environmental Science',
-        image: assets.Es,
+        image: Es,
     }, 
 ]
 export const tutors = [
