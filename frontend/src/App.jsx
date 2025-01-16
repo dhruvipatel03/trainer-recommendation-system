@@ -8,7 +8,8 @@ import Contact from './pages/Contact'
 import Myprofile from './pages/Myprofile'
 import Myappointments from './pages/Myappointments'
 import Appointment from './pages/Appointment'
-import Navbar from './components/Navbar'
+import Navbar from './components/navbar'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/my-appointments' element={<Myappointments />} />
         <Route path='/appointment/:trainid' element={<Appointment />} />
       </Routes>
+    <Footer/>
     </div>
   )
 }
