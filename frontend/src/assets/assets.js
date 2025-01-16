@@ -78,18 +78,18 @@ export const specialityData = [
 export const tutors = [
     {
         _id: 'tutor1',
-        name: 'Prof. Amelia Johnson',
+        name: 'Prof. William Thompson',
         image: tutor1,
         speciality: '',
         degree: 'PhD in Physics',
         experience: '10 Years',
-        about: 'Prof. Amelia Johnson has a passion for teaching and mentoring students in the field of physics, encouraging innovative thinking and research.',
+        about: 'Prof. William Thompson has a passion for teaching and mentoring students in the field of physics, encouraging innovative thinking and research.',
         fees: 50,
         address: {
             line1: '17th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
         }
-    },
+    },    
     {
         _id: 'tutor2',
         name: 'Dr. Benjamin Carter',
