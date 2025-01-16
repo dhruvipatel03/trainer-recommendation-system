@@ -61,27 +61,27 @@ export const assets = {
 
 export const specialityData = [
     {
-        speciality: 'Biology Tutor',
+        speciality: 'Biology',
         image: Biology
     },
     {
-        speciality: 'Physics Tutor',
+        speciality: 'Physics',
         image: Physics
     },
     {
-        speciality: 'Mathematics Tutor',
+        speciality: 'Mathematics',
         image: Maths
     },
     {
-        speciality: 'Literature Tutor',
+        speciality: 'Literature',
         image: Literature
     },
     {
-        speciality: 'Chemistry Tutor',
+        speciality: 'Chemistry',
         image: Chemistry
     },
     {
-        speciality: 'EnvironmentalScience Tutor',
+        speciality: 'EnvironmentalScience',
         image: Es
     }  
 ]
