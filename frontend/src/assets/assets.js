@@ -31,12 +31,12 @@ import tutor13 from './tutor13.jpg'
 import tutor14 from './tutor14.jpg'
 import tutor15 from './tutor15.jpg'
 import tutor16 from './tutor16.jpg'
-import Dermatologist from './Dermatologist.svg'
-import Gastroenterologist from './Gastroenterologist.svg'
-import General_physician from './General_physician.svg'
-import Gynecologist from './Gynecologist.svg'
-import Neurologist from './Neurologist.svg'
-import Pediatricians from './Pediatricians.svg'
+import Biology from './Biology.png'
+import Physics from './Physics.png'
+import Maths from './Maths.png'
+import Literature from './Literature.png'
+import Chemistry from './Chemistry.png'
+import Es from './Es.png'
 
 
 export const assets = {
@@ -61,31 +61,31 @@ export const assets = {
 
 export const specialityData = [
     {
-        speciality: 'General physician',
-        image: General_physician
+        speciality: 'Biology Tutor',
+        image: Biology
     },
     {
-        speciality: 'Gynecologist',
-        image: Gynecologist
+        speciality: 'Physics Tutor',
+        image: Physics
     },
     {
-        speciality: 'Dermatologist',
-        image: Dermatologist
+        speciality: 'Mathematics Tutor',
+        image: Maths
     },
     {
-        speciality: 'Pediatricians',
-        image: Pediatricians
+        speciality: 'Literature Tutor',
+        image: Literature
     },
     {
-        speciality: 'Neurologist',
-        image: Neurologist
+        speciality: 'Chemistry Tutor',
+        image: Chemistry
     },
     {
-        speciality: 'Gastroenterologist',
-        image: Gastroenterologist
-    },
+        speciality: 'EnvironmentalScience Tutor',
+        image: Es
+    }  
 ]
-export const teachers = [
+export const tutors = [
     {
         _id: 'tutor1',
         name: 'Prof. Amelia Johnson',
