@@ -1,11 +1,12 @@
-import React from 'react'
-import { tutors } from '../assets/assets'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext'
 
 const TopTutors = () => {
 
   const navigate = useNavigate()
-
+  const {tutors} = useContext(AppContext)
+   
   return (
     <div className='flex flex-col items-center gap-4 my-10 text-gray-900 md:mx-10'>
       <h1 className='text-3xl font-medium' >Top Tutors to Book</h1>
