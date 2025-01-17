@@ -10,6 +10,7 @@ import info_icon from './info_icon.svg'
 import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
+import appointment_img from './appointment_img.png'
 import tutor1 from './tutor1.png'
 import tutor2 from './tutor2.png'
 import tutor3 from './tutor3.png'
@@ -46,7 +47,8 @@ export const assets = {
     dropdown_icon,
     upload_icon,
     stripe_logo,
-    razorpay_logo
+    razorpay_logo,
+    appointment_img
 }
 
 export const specialityData = [
