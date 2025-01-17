@@ -23,14 +23,56 @@ const applyFilter = () => {
     <div>
       <p className='text-gray-600'>Brows through the trainers speciality</p>
       <div className='flex flex-col sm:flex-row items-start gap-5 mt-5'>
-        <div className='flex-col gap-4 text-sm text-gray-600'>
-          <p className={'W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer '}>Biology</p>
-          <p className={'W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer '}>Physics</p>
-          <p className={'W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer '}>Mathematics</p>
-          <p className={'W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer '}>Literature</p>
-          <p className={'W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer '}>Chemistry</p>
-          <p className={'W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer '}>Environmental Science</p>
-        </div>
+      <div className="flex flex-col gap-4 text-sm text-gray-600">
+  <p
+    onClick={() => (speciality === 'Biology' ? navigate('/tutors') : navigate('/tutors/Biology'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Biology' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Biology
+  </p>
+  <p
+    onClick={() => (speciality === 'Physics' ? navigate('/tutors') : navigate('/tutors/Physics'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Physics' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Physics
+  </p>
+  <p
+    onClick={() => (speciality === 'Mathematics' ? navigate('/tutors') : navigate('/tutors/Mathematics'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Mathematics' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Mathematics
+  </p>
+  <p
+    onClick={() => (speciality === 'Literature' ? navigate('/tutors') : navigate('/tutors/Literature'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Literature' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Literature
+  </p>
+  <p
+    onClick={() => (speciality === 'Chemistry' ? navigate('/tutors') : navigate('/tutors/Chemistry'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Chemistry' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Chemistry
+  </p>
+  <p
+    onClick={() => (speciality === 'Environmental Science' ? navigate('/tutors') : navigate('/tutors/Environmental Science'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Environmental Science' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Environmental Science
+  </p>
+</div>
         <div className='w-full grid grid-cols-auto gap-4 gap-y-6'>
           {
             filterTrain.map((item, index)=>(
