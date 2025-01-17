@@ -16,9 +16,9 @@ function App() {
     <div className='mx-4 sm:mx-[10%]'>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path='/trainers' element={<Trainers />} />
-        <Route path='/trainers/:speciality' element={<Trainers />} />
+        <Route path="/tutors/:speciality" element={<Trainers />} />
         <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
