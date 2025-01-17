@@ -25,7 +25,7 @@ const TopTutors = () => {
           </div>
         ))}
       </div> 
-      <button onClick={()=>{ navigate ('/tutors'); scrollTo(0,0)}} className='bg-blue-50 text-gray-600 px-6 py-2 rounded-full mt-10'>more</button>
+      <button onClick={()=>{ navigate ('../Trainers'); scrollTo(0,0)}} className='bg-blue-50 text-gray-600 px-6 py-2 rounded-full mt-10'>more</button>
     </div>
   )
 }
