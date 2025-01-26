@@ -11,7 +11,7 @@ import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
 import appointment_img from './appointment_img.png'
-import tutors from './tutors.png';
+import tutorsImg from './tutors.png';
 import tutor1 from './tutor1.jpg'
 import tutor2 from './tutor2.jpg'
 import tutor3 from './tutor3.jpg'
@@ -55,7 +55,7 @@ import Es from './Es.png'
 import about_img from './about_img.jpg'
 
 export const assets = {
-    tutors,
+    tutorsImg,
     about_img,
     group_profiles,
     chats_icon,
