@@ -26,7 +26,7 @@ const applyFilter = () => {
       <div className="flex flex-col gap-4 text-sm text-gray-600">
   <p
     onClick={() => (speciality === 'Biology' ? navigate('/tutors') : navigate('/tutors/Biology'))}
-    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+    className={`W-[100vw] sm:w-[16VW] pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
       speciality === 'Biology' ? 'bg-indigo-100 text-black' : ''
     }`}
   >
@@ -65,6 +65,22 @@ const applyFilter = () => {
     Chemistry
   </p>
   <p
+    onClick={() => (speciality === 'Psychology' ? navigate('/tutors') : navigate('/tutors/Psychology'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Psychology' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Psychology
+  </p>
+  <p
+    onClick={() => (speciality === 'History' ? navigate('/tutors') : navigate('/tutors/History'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'History' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+   History
+  </p>
+  <p
     onClick={() => (speciality === 'Environmental Science' ? navigate('/tutors') : navigate('/tutors/Environmental Science'))}
     className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
       speciality === 'Environmental Science' ? 'bg-indigo-100 text-black' : ''
@@ -72,8 +88,16 @@ const applyFilter = () => {
   >
     Environmental Science
   </p>
+  <p
+    onClick={() => (speciality === 'Computer Science' ? navigate('/tutors') : navigate('/tutors/Computer Science'))}
+    className={`W-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${
+      speciality === 'Computer Science' ? 'bg-indigo-100 text-black' : ''
+    }`}
+  >
+    Computer Science
+  </p>
 </div>
-        <div className='w-full grid grid-cols-auto gap-4 gap-y-6'>
+        <div className='w-full grid grid-cols-3 gap-4 gap-y-6'>
           {
             filterTrain.map((item, index)=>(
               <div onClick={()=> navigate(`/appointment/${item._id}`)} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:tranlate-y-[-10px] transition-all duration-500' key={index} >
