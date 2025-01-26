@@ -18,6 +18,27 @@ const About = () => {
             <p>To revolutionize education by creating a platform where every student can find their ideal tutor, unlocking their true potential. We aim to make personalized learning accessible, enjoyable, and impactful for learners everywhere. Empowering students with the right guidance is our step toward a brighter future!</p>
           </div>
         </div>
+
+        <div className='text-xl my-4'>
+          <p>WHY <span className='text-gray-700 font-semibold'>CHOOSE US</span></p>
+        </div>
+
+        <div className='flex flex-col md:flex-row mb-10'>
+          <div className='border px-10 md:px-10 py-4 sm:py-8 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white transition-all duration-300 text-gray-600 cursor-pointer text-justify'>
+            <b>Efficiency:</b>
+            <p>Connecting students with the right tutors quickly and seamlessly to save time and effort.</p>
+          </div>
+
+          <div className='border px-10 md:px-10 py-4 sm:py-8 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white transition-all duration-300 text-gray-600 cursor-pointer text-justify'>
+            <b>Convenience:</b>
+            <p>Simplifying the process of finding, booking, and interacting with tutors, all in one platform.</p>
+          </div>
+
+          <div className='border px-10 md:px-10 py-4 sm:py-8 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white transition-all duration-300 text-gray-600 cursor-pointer text-justify'>
+            <b>Personalization:</b>
+            <p>Tailoring tutor recommendations based on individual learning needs and goals.</p>
+          </div>
+        </div>
     </div>
   )
 }
