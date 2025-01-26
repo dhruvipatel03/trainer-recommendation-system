@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 const Footer = () => {
   return (
     <div className='md:mx-10'>
-      <div className='grid grid-cols-1 sm:grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
+      <div className='grid grid-cols-1 sm:grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-20 text-sm'>
         {/* -----Left section-------- */}
         <div>
           <img className='mb-5 w-40' src={logo} alt="Logo" />

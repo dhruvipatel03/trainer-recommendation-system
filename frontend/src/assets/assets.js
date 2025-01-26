@@ -1,6 +1,7 @@
 import group_profiles from './group_profiles.png'
 import profile_pic from './profile_pic.png'
 import dropdown_icon from './dropdown_icon.svg'
+import contact_img from './contact_img.jpg'
 import menu_icon from './menu_icon.svg'
 import cross_icon from './cross_icon.png'
 import chats_icon from './chats_icon.svg'
@@ -55,6 +56,7 @@ import Es from './Es.png'
 import about_img from './about_img.jpg'
 
 export const assets = {
+    contact_img,
     tutorsImg,
     about_img,
     group_profiles,
