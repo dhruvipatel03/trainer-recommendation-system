@@ -14,7 +14,7 @@ const Header = () => {
             <div className='flex flex-col md:flex-row items-center gap-3 text-white text-sm font-light'>
               <img className='w-20' src={assets.group_profiles} alt="" />
               {/* <p className="text-sx md:text-base mt-1"> */}
-              <p className="text-xs md:text-sm mt-1">
+              <p className="text-xs md:text-sm mt-1 text-justify">
                 Simply browse through our extensive list of <br className='hidden sm:block' /> trusted tutors, schedule your appointment hassle-free.
               </p>
             </div>
