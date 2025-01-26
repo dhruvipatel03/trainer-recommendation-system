@@ -10,7 +10,7 @@ const About = () => {
         </div>
 
         <div>
-          <img src={assets.appointment_img} alt="" />
+          <img src={assets.about_img} alt="" />
           <div>
             <p>Welcome to GuideGrid, where we connect students with the perfect tutors to make learning simple, effective, and personalized. Our platform is designed to bridge the gap between learners and skilled educators, offering a seamless experience to book tutors who align with your academic needs and goals.</p>
             <p>With a focus on making education accessible and stress-free, we use smart recommendations to match you with tutors based on your preferences and learning style. Whether you’re mastering a subject or preparing for exams, we’re here to ensure you achieve success with the right guidance. Let’s transform the way you learn—one session at a time!</p>

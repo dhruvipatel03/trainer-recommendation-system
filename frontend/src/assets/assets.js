@@ -51,8 +51,10 @@ import Maths from './Maths.png'
 import Literature from '../assets/Literature.png'
 import Chemistry from './Chemistry.png'
 import Es from './Es.png'
+import about_img from './about_img.png'
 
 export const assets = {
+    about_img,
     group_profiles,
     chats_icon,
     verified_icon,
@@ -91,6 +93,18 @@ export const specialityData = [
     },
     {
         speciality: 'Environmental Science',
+        image: Es,
+    }, 
+    {
+        speciality: 'Computer Science',
+        image: Es,
+    }, 
+    {
+        speciality: 'Psychology',
+        image: Es,
+    }, 
+    {
+        speciality: 'History',
         image: Es,
     }, 
 ]
