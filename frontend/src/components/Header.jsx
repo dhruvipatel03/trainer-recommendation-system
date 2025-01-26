@@ -25,7 +25,7 @@ const Header = () => {
 
         {/* ------Right Side------- */}
             <div className='hidden md:block md:w-1/2 lg:w-[370px] relative'>
-              <img  style={{ width: '80%',height: '100%'}} className='md:absolute bottom-0 left-1/2 transform -translate-x-1/2 h-auto rounded-lg' src={assets.tutorsImg} alt="" />
+              <img  style={{ width: '90%',height: '100%'}} className='md:absolute bottom-0 left-1/2 transform -translate-x-1/2 h-auto rounded-lg' src={assets.tutorsImg} alt="" />
             </div>
     </div>
   )
