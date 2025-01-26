@@ -6,10 +6,10 @@ const About = () => {
     <div>
         
         <div className='text-center text-2xl pt-10 text-gray-500'>
-          <p>ABOUT <span>US</span></p>
+          <p>ABOUT <span className='text-gray-700 font-medium'>US</span></p>
         </div>
 
-        <div>
+        <div className='my-10 flex flex-col md:flex-row gap-12'>
           <img src={assets.about_img} alt="" />
           <div>
             <p>Welcome to GuideGrid, where we connect students with the perfect tutors to make learning simple, effective, and personalized. Our platform is designed to bridge the gap between learners and skilled educators, offering a seamless experience to book tutors who align with your academic needs and goals.</p>

@@ -51,7 +51,7 @@ import Maths from './Maths.png'
 import Literature from '../assets/Literature.png'
 import Chemistry from './Chemistry.png'
 import Es from './Es.png'
-import about_img from './about_img.png'
+import about_img from './about_img.jpg'
 
 export const assets = {
     about_img,
