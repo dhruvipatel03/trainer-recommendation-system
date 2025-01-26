@@ -41,6 +41,10 @@ import tutor27 from './tutor27.jpg'
 import tutor28 from './tutor28.jpg'
 import tutor29 from './tutor29.jpg'
 import tutor30 from './tutor30.jpg'
+import tutor31 from './tutor31.jpg'
+import tutor32 from './tutor32.jpg'
+import tutor33 from './tutor33.jpg'
+import tutor34 from './tutor34.jpg'
 import Biology from './Biology.png'
 import Physics from './Physics.png'
 import Maths from './Maths.png'
@@ -106,7 +110,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor2',
+        _id: 'tutor17',
         name: 'Prof. Rohan Sharma',
         image: tutor17,
         speciality: 'Physics',
@@ -120,7 +124,21 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor3',
+        _id: 'tutor10',
+        name: 'Prof. Rohini yadav',
+        image: tutor10,
+        speciality: 'Physics',
+        degree: 'Masters in Physics',
+        experience: '12 Years',
+        about: 'Prof. Rohini yadav is passionate about experimental physics, working to make complex concepts easier for students to understand.',
+        fees: 55,
+        address: {
+            line1: '13th Cross, Cyberabad',
+            line2: 'Delhi, India'
+        }
+    },
+    {
+        _id: 'tutor2',
         name: 'Dr. Priya Sharma',
         image: tutor2,
         speciality: 'Mathematics',
@@ -134,7 +152,21 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor4',
+        _id: 'tutor11',
+        name: 'Dr. Priyanshi singh',
+        image: tutor11,
+        speciality: 'Mathematics',
+        degree: 'MSc in Applied Mathematics',
+        experience: '10 Years',
+        about: 'Dr. Priyanshi singh specializes in abstract algebra and mathematical logic, creating an engaging learning environment for her students.',
+        fees: 65,
+        address: {
+            line1: '22nd Cross, Patparganj',
+            line2: 'Pune, Maharashtra, India'
+        }
+    },
+    {
+        _id: 'tutor18',
         name: 'Prof. Ananya Gupta',
         image: tutor18,
         speciality: 'Mathematics',
@@ -148,7 +180,21 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor5',
+        _id: 'tutor12',
+        name: 'Prof. Aman sahay',
+        image: tutor12,
+        speciality: 'Mathematics',
+        degree: 'MSc in Pure Mathematics',
+        experience: '10 Years',
+        about: 'Prof. Aman sahay is an expert in number theory, known for her ability to simplify complex problems into solvable steps.',
+        fees: 65,
+        address: {
+            line1: '2th Cross, Kormangala',
+            line2: 'Bangalore, Karnataka, India'
+        }
+    },
+    {
+        _id: 'tutor3',
         name: 'Dr. Vikram Desai',
         image: tutor3,
         speciality: 'Biology',
@@ -162,7 +208,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor6',
+        _id: 'tutor19',
         name: 'Prof. Priya Verma',
         image: tutor19,
         speciality: 'Biology',
@@ -176,7 +222,35 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor7',
+        _id: 'tutor13',
+        name: 'Prof. Mohini shah',
+        image: tutor13,
+        speciality: 'Biology',
+        degree: 'MSc in Molecular Biology',
+        experience: '8 Years',
+        about: 'Prof. Mohini shah specializes in molecular biology, motivating her students to explore the intricate world of cells and genes.',
+        fees: 35,
+        address: {
+            line1: '49th Cross, Chintadripet',
+            line2: 'Chennai, Tamil Nadu, India'
+        }
+    },
+    {
+        _id: 'tutor14',
+        name: 'Prof. Naresh sen',
+        image: tutor14,
+        speciality: 'Biology',
+        degree: 'MSc in Molecular Biology',
+        experience: '8 Years',
+        about: 'Prof. Naresh sen specializes in molecular biology, motivating her students to explore the intricate world of cells and genes.',
+        fees: 35,
+        address: {
+            line1: '49th Cross, Chintadripet',
+            line2: 'Chennai, Tamil Nadu, India'
+        }
+    },
+    {
+        _id: 'tutor4',
         name: 'Dr. Aman Singh',
         image: tutor4,
         speciality: 'Chemistry',
@@ -190,7 +264,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor8',
+        _id: 'tutor20',
         name: 'Dr. Kunal Kapoor',
         image: tutor20,
         speciality: 'Chemistry',
@@ -204,7 +278,35 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor9',
+        _id: 'tutor15',
+        name: 'Dr. Krupa bhanushali',
+        image: tutor15,
+        speciality: 'Chemistry',
+        degree: 'MSc in Inorganic Chemistry',
+        experience: '7 Years',
+        about: 'Dr. Krupa bhanushali is a leading expert in organic chemistry, focusing on reaction mechanisms and synthetic methodologies.',
+        fees: 45,
+        address: {
+            line1: '12nd Cross, Dadar',
+            line2: 'Mumbai, Maharashtra, India'
+        }
+    },
+    {
+        _id: 'tutor16',
+        name: 'Dr. Gautam kothari',
+        image: tutor16,
+        speciality: 'Chemistry',
+        degree: 'MSc in Inorganic Chemistry',
+        experience: '7 Years',
+        about: 'Dr. Gautam kothari is a leading expert in organic chemistry, focusing on reaction mechanisms and synthetic methodologies.',
+        fees: 45,
+        address: {
+            line1: '100nd Cross, Dadar',
+            line2: 'Mumbai, Maharashtra, India'
+        }
+    },
+    {
+        _id: 'tutor5',
         name: 'Prof. Rajesh Reddy',
         image: tutor5,
         speciality: 'Literature',
@@ -218,7 +320,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor10',
+        _id: 'tutor21',
         name: 'Prof. Aishwarya Kapoor',
         image: tutor21,
         speciality: 'Literature',
@@ -232,7 +334,35 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor11',
+        _id: 'tutor26',
+        name: 'Prof. Anisha bhatt',
+        image: tutor26,
+        speciality: 'Literature',
+        degree: 'MA in Comparative Literature',
+        experience: '11 Years',
+        about: 'Prof. Anisha bhatt is passionate about creative writing and works with students to develop their literary voices.',
+        fees: 55,
+        address: {
+            line1: '9th Cross, New Alipore',
+            line2: 'Kolkata, West Bengal, India'
+        }
+    },
+    {
+        _id: 'tutor27',
+        name: 'Prof. Kanika parikh',
+        image: tutor27,
+        speciality: 'Literature',
+        degree: 'MA in Comparative Literature',
+        experience: '11 Years',
+        about: 'Prof. Kanika parikh is passionate about creative writing and works with students to develop their literary voices.',
+        fees: 55,
+        address: {
+            line1: '9th Cross, New Alipore',
+            line2: 'Kolkata, West Bengal, India'
+        }
+    },
+    {
+        _id: 'tutor6',
         name: 'Dr. Devendra Singh',
         image: tutor6,
         speciality: 'Computer Science',
@@ -246,7 +376,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor12',
+        _id: 'tutor22',
         name: 'Harshvardhan Mehta',
         image: tutor22,
         speciality: 'Computer Science',
@@ -260,7 +390,35 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor13',
+        _id: 'tutor28',
+        name: 'prof. Vedant amin',
+        image: tutor28,
+        speciality: 'Computer Science',
+        degree: 'MSc in Data Science',
+        experience: '9 Years',
+        about: 'Vedant amin specializes in data science and software development, inspiring students to innovate and solve problems.',
+        fees: 55,
+        address: {
+            line1: '22nd Cross, Patparganj',
+            line2: 'Delhi, India'
+        }
+    },
+    {
+        _id: 'tutor29',
+        name: 'Akshat prajapati',
+        image: tutor29,
+        speciality: 'Computer Science',
+        degree: 'MSc in Data Science',
+        experience: '9 Years',
+        about: 'Akshat prajapati specializes in data science and software development, inspiring students to innovate and solve problems.',
+        fees: 55,
+        address: {
+            line1: '22nd Cross, Patparganj',
+            line2: 'Delhi, India'
+        }
+    },
+    {
+        _id: 'tutor7',
         name: 'Prof. Kavita Joshi',
         image: tutor7,
         speciality: 'Psychology',
@@ -274,7 +432,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor14',
+        _id: 'tutor23',
         name: 'Prof. Tarun Kapoor',
         image: tutor23,
         speciality: 'Psychology',
@@ -288,13 +446,27 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor15',
-        name: 'Dr. Shruti Mehta',
+        _id: 'tutor30',
+        name: 'Prof. Tarun Kapoor',
+        image: tutor30,
+        speciality: 'Psychology',
+        degree: 'MSc in Counseling Psychology',
+        experience: '12 Years',
+        about: 'Prof. Tarun Kapoor integrates both theory and practice in psychological education, allowing students to explore human emotions deeply.',
+        fees: 55,
+        address: {
+            line1: '3rd Cross, South Extension',
+            line2: 'New Delhi, India'
+        }
+    },
+    {
+        _id: 'tutor8',
+        name: 'Dr. Trupti nagar',
         image: tutor8,
         speciality: 'History',
         degree: 'MA in Ancient Indian History',
         experience: '8 Years',
-        about: 'Dr. Shruti Mehta offers an immersive look into world history, connecting past events with current global issues.',
+        about: 'Dr. Trupti nagar offers an immersive look into world history, connecting past events with current global issues.',
         fees: 65,
         address: {
             line1: '19th Cross, Kamla Nagar',
@@ -302,7 +474,7 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor16',
+        _id: 'tutor24',
         name: 'Dr. Meera Iyer',
         image: tutor24,
         speciality: 'History',
@@ -316,7 +488,35 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor17',
+        _id: 'tutor31',
+        name: 'Dr. Naman panday',
+        image: tutor31,
+        speciality: 'History',
+        degree: 'MA in Modern History',
+        experience: '8 Years',
+        about: 'Dr. Naman panday brings history to life, using storytelling techniques that engage students in the lessons of the past.',
+        fees: 65,
+        address: {
+            line1: '25th Cross, Jadavpur',
+            line2: 'Kolkata, West Bengal, India'
+        }
+    },
+    {
+        _id: 'tutor32',
+        name: 'Dr. Jasmin parikh',
+        image: tutor32,
+        speciality: 'History',
+        degree: 'MA in Modern History',
+        experience: '8 Years',
+        about: 'Dr. Meera Iyer brings history to life, using storytelling techniques that engage students in the lessons of the past.',
+        fees: 65,
+        address: {
+            line1: '25th Cross, Jadavpur',
+            line2: 'Kolkata, West Bengal, India'
+        }
+    },
+    {
+        _id: 'tutor9',
         name: 'Dr. Tanvi Jain',
         image: tutor9,
         speciality: 'Environmental Science',
@@ -330,13 +530,41 @@ export const tutors = [
         }
     },
     {
-        _id: 'tutor18',
+        _id: 'tutor25',
         name: 'Isha Chauhan',
         image: tutor25,
         speciality: 'Environmental Science',
         degree: 'MSc in Environmental Science',
         experience: '6 Years',
         about: 'Isha Chauhan teaches environmental sustainability with a hands-on approach, helping students develop an understanding of practical solutions.',
+        fees: 35,
+        address: {
+            line1: '37th Cross, Madiwala',
+            line2: 'Bangalore, Karnataka, India'
+        }
+    },
+    {
+        _id: 'tutor33',
+        name: 'Manan dave',
+        image: tutor33,
+        speciality: 'Environmental Science',
+        degree: 'MSc in Environmental Science',
+        experience: '6 Years',
+        about: 'Manan dave teaches environmental sustainability with a hands-on approach, helping students develop an understanding of practical solutions.',
+        fees: 35,
+        address: {
+            line1: '37th Cross, Madiwala',
+            line2: 'Bangalore, Karnataka, India'
+        }
+    },
+    {
+        _id: 'tutor34',
+        name: 'Mahisha kulkarni',
+        image: tutor34,
+        speciality: 'Environmental Science',
+        degree: 'MSc in Environmental Science',
+        experience: '6 Years',
+        about: 'Mahisha kulkarni teaches environmental sustainability with a hands-on approach, helping students develop an understanding of practical solutions.',
         fees: 35,
         address: {
             line1: '37th Cross, Madiwala',
