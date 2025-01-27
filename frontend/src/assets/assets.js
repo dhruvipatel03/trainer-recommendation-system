@@ -120,7 +120,7 @@ export const tutors = [
         speciality: 'Physics',
         degree: 'PhD in Physics',
         experience: '12 Years',
-        about: 'Prof. Arjun Patel is a leading expert in quantum mechanics, dedicated to bridging theoretical knowledge with real-world applications.',
+        about: 'Prof. Arjun Patel is a leading expert in quantum mechanics, dedicated to bridging theoretical knowledge with real-world applications.His groundbreaking research has been published in leading journals, and he is frequently invited to speak at international conferences.',
         fees: 55,
         address: {
             line1: '28th Cross, Andheri East',

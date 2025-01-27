@@ -4,9 +4,9 @@ import { tutors } from "../assets/assets";
 export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
-
+const currencySymbol = '$'
     const value = {
-       tutors
+       tutors , currencySymbol
     }
 
     return (
