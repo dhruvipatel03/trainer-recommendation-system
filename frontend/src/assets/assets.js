@@ -1,5 +1,5 @@
 import group_profiles from './group_profiles.png'
-import profile_pic from './profile_pic.png'
+import profile_pic from './profile_pic.jpg'
 import dropdown_icon from './dropdown_icon.svg'
 import contact_img from './contact_img.jpg'
 import menu_icon from './menu_icon.svg'
