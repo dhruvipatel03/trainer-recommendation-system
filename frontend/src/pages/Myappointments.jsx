@@ -9,7 +9,7 @@ const Myappointments = () => {
     <div>
         <p>My appointments</p>
         <div>
-          {doctors.slice(0,2).map((item, index)=>(
+          {tutors.slice(0,2).map((item, index)=>(
             <div key={index}>
               <div>
                 <img src={item.image} alt="" />
