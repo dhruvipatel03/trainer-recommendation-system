@@ -1,5 +1,5 @@
 import validator from "validator"
-import bycrypt from 'bcrypt'
+import bcrypt from 'bcrypt'
 import { v2 as cloudinary } from 'cloudinary';
 import tutorModel from "../models/tutorModel.js"
 
@@ -12,21 +12,21 @@ const addtutor = async(req, res) => {
        const {name, email, password, speciality, degree, experience, about, fees, address} = req.body
        const imageFile = req.file 
 
-    //    checking for all data to add doctor
+    //checking for all data to add tutor
     if(!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address){
-        return res.json({success:false , massage:"Missing Details"})
+        return res.json({success:false , message:"Missing Details"})
     }
-    //validating email formate
+    //validating email format
     if (!validator.isEmail(email)) {
-        return res.json({success:false , massage:"Please enter a valid email"})
+        return res.json({success:false , message:"Please enter a valid email"})
     }
     //validate strong password
     if (password.length < 8) {
-        return res.json({success:false , massage:"Please enter a strong password"})
+        return res.json({success:false , message:"Please enter a strong password"})
     }
     // hashing doctor password
-    const salt = await bycrypt.genSalt(10)
-    const hashedPassword = await bycrypt.hash(password , salt)
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password , salt)
 
     // upload image to cloudinary 
     const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: "image" })
@@ -42,13 +42,14 @@ const addtutor = async(req, res) => {
         experience,
         about,
         fees,
-        address:jason.parse(address),
+        address:JSON.parse(address),
         date:Date.now()
 
     }
     const newTutor = new tutorModel(tutorData)
     await newTutor.save()
-    res.jason({success:true,message:"Tutor Added"})
+    
+    res.json({success:true,message:"Tutor Added"})
 
     }
     catch (error) {
