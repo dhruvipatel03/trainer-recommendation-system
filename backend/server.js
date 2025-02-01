@@ -1,26 +1,23 @@
-import express from 'express'
-import cors from 'cors'
-import 'dotenv/config'
-import connectDB from './config/mongodb.js'
-import connectCloudinary from './config/cloudinary.js'
-import adminRouter from './routes/adminroute.js'
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
+import connectDB from './config/mongodb.js';
+import connectCloudinary from './config/cloudinary.js';
+import adminRouter from './routes/adminroute.js';
 
-// app config
-const app = express()
-const port = process.env.PORT || 4000
-connectDB()
-connectCloudinary()
+const app = express();
+const port = process.env.PORT || 4000;
 
-// middlewares
-app.use(express.json())
-app.use(cors())
+connectDB();  // Ensure this is called here
 
-// api endpoint
-app.use('/api/admin', adminRouter)
-// localhost:4000/api/admin/add-tutor
+connectCloudinary();
 
-app.get('/', (req, res)=>{
-    res.send('Api working')
-})
+app.use(express.json());
+app.use(cors());
 
-app.listen(port, ()=> console.log("server started",port))
+
+app.get('/', (req, res) => {
+    res.send('Api working');
+});
+
+app.listen(port, () => console.log(`Server started`,port));

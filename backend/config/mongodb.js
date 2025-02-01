@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
 const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URI); // No need for options in MongoDB v4+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`❌ MongoDB Connection Error: ${error.message}`);
+    process.exit(1); // Exit if connection fails
+  }
+};
 
-    mongoose.connection.on('connected', ()=> console.log("database connected"))
-
-    await mongoose.connect(`${process.env.MONGODB_URI}/Guide-grid`)
-}
-
-export default connectDB
+export default connectDB;
