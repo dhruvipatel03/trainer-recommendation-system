@@ -54,7 +54,7 @@ const addtutor = async(req, res) => {
     catch (error) {
 
         console.log(error)
-        res.json({success:false , message:error.massage})
+        res.json({success:false , message:error.message})
     }
 }
 

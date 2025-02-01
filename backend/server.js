@@ -20,7 +20,7 @@ app.use('/api/admin', adminRouter)
 // localhost:4000/api/admin/add-tutor
 
 app.get('/', (req, res)=>{
-    res.send('Api working grate')
+    res.send('Api working')
 })
 
 app.listen(port, ()=> console.log("server started",port))
