@@ -14,7 +14,7 @@ const tutorSchema = new mongoose.Schema({
     address: {type:Object, required: true},
     date: {type:Number, required: true},
     slots_booked: {type:Object, default:{}}
-},{minimize:false})
+},{collection: 'data'})
 
 const tutorModel =  mongoose.models.tutor || mongoose.model('tutor', tutorSchema)
 
