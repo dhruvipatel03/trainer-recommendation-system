@@ -1,13 +1,14 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI); // No need for options in MongoDB v4+
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    console.log("Connecting to MongoDB...");
+    await mongoose.connect(process.env.MONGODB_URI);  // Use the .env variable
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.error(`❌ MongoDB Connection Error: ${error.message}`);
-    process.exit(1); // Exit if connection fails
+    console.error("Error connecting to MongoDB:", error);
+    process.exit(1);
   }
 };
 
-export default connectDB;
+export default connectDB;  // Ensure default export is present
