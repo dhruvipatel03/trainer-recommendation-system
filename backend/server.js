@@ -23,7 +23,7 @@ app.use('/api/admin',adminRouter)
 
 
 app.get('/', (req, res) => {
-    res.send('Api working')
+    res.send('Api working chahna')
 });
 
 app.listen(port, () => console.log(`Server started`,port))
