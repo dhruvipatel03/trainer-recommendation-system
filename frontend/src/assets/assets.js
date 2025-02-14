@@ -129,12 +129,12 @@ export const tutors = [
     },
     {
         _id: 'tutor2',
-        name: 'Dr. Priya Sharma',
+        name: 'Priya Sharma',
         image: tutor2,
         speciality: 'Mathematics',
         degree: 'MSc in Applied Mathematics',
         experience: '10 Years',
-        about: 'Dr. Priya Sharma specializes in abstract algebra and mathematical logic, creating an engaging learning environment for her students.',
+        about: 'Priya Sharma specializes in abstract algebra and mathematical logic, creating an engaging learning environment for her students.',
         fees: 65,
         address: {
             line1: '12th Cross, Baner',
