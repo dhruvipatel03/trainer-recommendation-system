@@ -177,7 +177,7 @@ export const tutors = [
         degree: 'MSc in Environmental Biology',
         experience: '8 Years',
         about: 'Dr. Vikram Desai is passionate about ecological biology and uses field-based learning to deepen understanding of environmental issues.',
-        fees: 35,
+        fees: 34,
         address: {
             line1: '55th Cross, Akurli',
             line2: 'Mumbai, Maharashtra, India'
@@ -189,7 +189,7 @@ export const tutors = [
         image: tutor4,
         speciality: 'Chemistry',
         degree: 'MSc in Organic Chemistry',
-        experience: '7 Years',
+        experience: '8 Years',
         about: 'Dr. Aman Singh emphasizes hands-on experiments and real-world chemistry applications, making learning both fun and practical.',
         fees: 45,
         address: {
@@ -493,12 +493,12 @@ export const tutors = [
     },
     {
         _id: 'tutor30',
-        name: 'Prof. Tarun Kapoor',
+        name: 'Prof. Taruna Kapoor',
         image: tutor30,
         speciality: 'Psychology',
         degree: 'MSc in Counseling Psychology',
         experience: '12 Years',
-        about: 'Prof. Tarun Kapoor integrates both theory and practice in psychological education, allowing students to explore human emotions deeply.',
+        about: 'Prof. Taruna Kapoor integrates both theory and practice in psychological education, allowing students to explore human emotions deeply.',
         fees: 55,
         address: {
             line1: '3rd Cross, South Extension',

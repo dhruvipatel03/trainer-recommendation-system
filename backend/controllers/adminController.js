@@ -77,4 +77,37 @@ const loginAdmin = async(req,res) =>{
     }
 }
 
-export {addtutor,loginAdmin}
+
+// const allTutors = async (req, res) => {
+//     try {
+//         const tutors = await tutorModel.find({}).select('-password'); // Exclude password field
+
+//         console.log("Tutors Retrieved from DB:", tutors); // Debugging log
+
+//         if (tutors.length === 0) {
+//             return res.json({ success: false, message: "No tutors found in the database" });
+//         }
+
+//         res.json({ success: true, tutors });
+
+//     } catch (error) {
+//         console.error("Error fetching tutors:", error);
+//         res.status(500).json({ success: false, message: error.message });
+//     }
+// };
+
+//API to get all tutors list for admin panel
+const allTutors = async (req, res) => {
+    try {
+        
+        const tutors = await tutorModel.find({}).select('-password')
+        res.json({success:true, tutors})
+
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:error.message}) 
+    }
+}
+
+
+export {addtutor,loginAdmin,allTutors}

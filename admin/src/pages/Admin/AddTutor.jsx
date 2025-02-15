@@ -104,7 +104,7 @@ const AddTutor = () => {
 
             <div className="flex-1 flex flex-col gap-1">
               <p>Experience</p>
-              <select onChange={(e)=>setExperience(e.target.value)} value={experience} className="border border-gray-400  rounded px-3 py-2" name="" id="">
+              <select onChange={(e)=>setExperience(e.target.value)} value={experience} className="border border-gray-400  rounded px-3 py-2" name="" id="first-select">
                 <option value="1 year">1 year</option>
                 <option value="2 year">2 year</option>
                 <option value="3 year">3 year</option>
@@ -115,6 +115,7 @@ const AddTutor = () => {
                 <option value="8 year">8 year</option>
                 <option value="9 year">9 year</option>
                 <option value="10 year">10 year</option>
+                <option value="10+ year">10+ year</option>
               </select>
             </div>
 
@@ -127,7 +128,7 @@ const AddTutor = () => {
           <div className="w-full lg:flex-1 flex flex-col gap-4">
             <div className="flex-1 flex flex-col gap-1">
               <p>Speciality</p>
-              <select onChange={(e)=>setspeciality(e.target.value)} value={speciality} className="border border-gray-400  rounded px-3 py-2" name="" id="">
+              <select onChange={(e)=>setspeciality(e.target.value)} value={speciality} className="border border-gray-400  rounded px-3 py-2" name="" id="second-select">
                 <option value="Biology">Biology</option>
                 <option value="Physics">Physics</option>
                 <option value="Mathematics">Mathematics</option>
