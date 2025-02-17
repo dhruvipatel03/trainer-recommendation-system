@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectDB from './config/mongodb.js'; 
 import connectCloudinary from './config/cloudinary.js';
 import adminRouter from './routes/adminRoute.js';
+import tutorRouter from './routes/tutorRoute.js';
 
 
 //app config
@@ -20,6 +21,7 @@ app.use(cors())
 
 //api endpoints
 app.use('/api/admin',adminRouter)
+app.use('/api/tutor', tutorRouter)
 
 
 app.get('/', (req, res) => {
