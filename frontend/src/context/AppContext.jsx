@@ -9,13 +9,10 @@ const AppContextProvider = (props) => {
 const currencySymbol = '$'
 const backendUrl = import.meta.env.VITE_BACKEND_URL
 const [tutors, setTutors] = useState([])
+const [token , setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):false)
 
 
-    const value = {
-       tutors , 
-       currencySymbol
-    }
-
+   
     const getTutorsData = async () => {
         try {
 
@@ -31,7 +28,14 @@ const [tutors, setTutors] = useState([])
             toast.error(error.message)
         }
     }
+    const value = {
+        tutors , 
+        currencySymbol,
+        token,setToken,
+        backendUrl
+     }
 
+     
     useEffect(() => {
         getTutorsData()
     },[])
