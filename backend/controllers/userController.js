@@ -67,5 +67,63 @@ const loginUser = async(req , res)=>{
     }
 }
 
+// API to get user profile data (this is not working)
+// const getprofile = async (req, res) => {
 
-export {registerUser , loginUser}
+//     try {
+//         const { userId } = req.body
+//         const userData = await userModel.findById(userId).select('-password')
+
+//         res.json({success: true, userData})
+
+//     } catch (error) {
+//         console.error(error);
+//         res.json({ success: false, message: error.message });
+//     }
+// }
+
+
+//this is working but hardcoded here,
+// const getprofile = async (req, res) => {
+//     try {
+//         // Hardcoding your user ID
+//         const userId = "67b42a2da5af7e5e5c7f24cf";
+
+//         // Fetch user from MongoDB
+//         const userData = await userModel.findById(userId).select('-password');
+
+//         if (!userData) {
+//             return res.json({ success: false, message: "User not found" });
+//         }
+
+//         res.json({ success: true, userData });
+
+//     } catch (error) {
+//         console.error(error);
+//         res.json({ success: false, message: error.message });
+//     }
+// };
+
+//this is working but have to use userid as parameter evrytime in postman example: get: http://localhost:4000/api/user/get-profile?userId=67b42a2da5af7e5e5c7f24cf
+const getprofile = async (req, res) => {
+    try {
+        const userId = req.query.userId; // Extract from URL params
+
+        if (!userId) {
+            return res.json({ success: false, message: "User ID is missing" });
+        }
+
+        const userData = await userModel.findById(userId).select('-password');
+
+        if (!userData) {
+            return res.json({ success: false, message: "User not found" });
+        }
+
+        res.json({ success: true, userData });
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, message: error.message });
+    }
+};
+
+export {registerUser , loginUser, getprofile}
