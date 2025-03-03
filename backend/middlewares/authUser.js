@@ -1,29 +1,23 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-const authUser = async (req, res, next) => {
-    try {
-        const { token } = req.headers;
+const authUser = (req, res, next) => {
+  try {
+    console.log("Headers Received:", req.headers); // Debugging
 
-        if (!token) {
-            return res.status(401).json({ success: false, message: 'Not Authorized, login again' });
-        }
-
-        // Verify the token
-        const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-
-        req.body.userId = token_decode.userId
-        
-        // Check if the decoded token contains email and role
-        if (!token_decode.email || token_decode.role !== 'admin') {
-            return res.status(403).json({ success: false, message: 'Access denied. You are not an admin.' });
-        }
-
-        req.admin = token_decode; // Store decoded admin data in request
-        next(); // Proceed if authentication is successful
-    } catch (error) {
-        console.error(error);
-        return res.status(401).json({ success: false, message: 'Invalid or expired token' });
+    const token = req.headers.authorization?.split(" ")[1]; // Extract token
+    if (!token) {
+      return res.status(401).json({ success: false, message: "Token is missing" });
     }
+
+    const decoded = jwt.verify(token, "your_secret_key"); // Use correct secret key
+
+    console.log("Decoded Token:", decoded); // Debugging
+
+    req.user = decoded; // Attach user info to request
+    next();
+  } catch (error) {
+    return res.status(401).json({ success: false, message: "Invalid token" });
+  }
 };
 
 export default authUser;
