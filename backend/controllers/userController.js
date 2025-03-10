@@ -96,7 +96,6 @@ const getprofile = async (req, res) => {
   }
 };
 //API to update user profile
-import jwt from 'jsonwebtoken';
 
 const updateProfile = async (req, res) => {
   try {
