@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 import {v2 as cloudinary} from 'cloudinary'
+import tutorModel from "../models/tutorModel.js";
+import appointmentModel from "../models/appointmentModel.js";
 
 //API to register user
 const registerUser = async (req, res) => {
@@ -140,7 +142,60 @@ const updateProfile = async (req, res) => {
     console.error("Error:", error);
     res.json({ success: false, message: error.message });
   }
-};
+}
+//API to book appointment 
+const bookAppointment = async(req , res) =>{
+  try {
+    const {userId , tutorId , slotDate , slotTime} = req.body
+
+    const tutorData = await tutorModel.findById(tutorId).select('-password')
+
+    if(!tutorData.available)
+    {
+      return res.json({success:false , message:'Tutors not available'})
+    }
+
+    let slots_booked = tutorData.slots_booked
+
+    //checking for slot availablility
+    if(slots_booked[slotDate]){
+      if(slots_booked[slotDate].includes(slotTime)){
+        return res.json({success:false , message:'Slot not available'})
+      }else{
+        slots_booked[slotDate].push(slotTime)
+      }
+    } else{
+      slots_booked[slotDate]=[]
+      slots_booked[slotDate].push(slotTime)
+    }
+    
+    const userData = await userModel.findById(userId).select('-password')
+    delete tutorData.slots_booked
+
+    const appointmentData = {
+      userId,
+      tutorId,
+      userData,
+      tutorData,
+      amount:tutorData.fees,
+      slotTime,
+      slotDate,
+      date: Date.now()
+    }
+
+    const newAppointment = new appointmentModel(appointmentData)
+    await newAppointment.save()
+
+    //save new slots date in tutorData
+    await tutorModel.findByIdAndUpdate(tutorId,{slots_booked})
+
+    res.json({success:true , message:'Appointment booked'})
+
+  } catch (error) {
+    console.error("Error:", error);
+    res.json({ success: false, message: error.message });
+  }
+}
 
 
-export { registerUser, loginUser, getprofile , updateProfile };
+export { registerUser, loginUser, getprofile , updateProfile , bookAppointment };

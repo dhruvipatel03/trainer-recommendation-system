@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 
-const RelatedTrainers = ({ speciality, trainid }) => {
+const RelatedTrainers = ({ speciality, tutorId }) => {
   const { tutors } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -11,11 +11,11 @@ const RelatedTrainers = ({ speciality, trainid }) => {
   useEffect(() => {
     if (tutors.length > 0 && speciality) {
       const tutorsData = tutors.filter(
-        (tutor) => tutor.speciality === speciality && tutor._id !== trainid
+        (tutor) => tutor.speciality === speciality && tutor._id !== tutorId
       );
       setRelTutor(tutorsData);
     }
-  }, [tutors, speciality, trainid]);
+  }, [tutors, speciality, tutorId]);
 
   return (
     <div className='flex flex-col items-center gap-4 my-10 text-gray-900 md:mx-10'>

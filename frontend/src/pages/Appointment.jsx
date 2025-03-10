@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext.jsx';
 import { assets } from '../assets/assets.js';
 import RelatedTrainers from '../components/RelatedTrainers.jsx';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const Appointment = () => {
-  const { trainid } = useParams();
-  const { tutors , currencySymbol } = useContext(AppContext);
+  const { tutorId } = useParams();
+  const { tutors , currencySymbol , backendUrl , token , getTutorsData } = useContext(AppContext);
   const daysOfWeek = ['SUN' , 'MON' , 'TUE' , 'WED' , 'THU' , 'FRI' , 'SAT']
+  const navigate = useNavigate()
 
   const [tutorInfo, setTutorInfo] = useState(null);
   const [tutorSlots,setTutorSlots] = useState([])
@@ -15,7 +18,7 @@ const Appointment = () => {
   const [slotTime , setSlotTime] = useState('')
 
   const fetchTutorInfo = async () => {
-    const tutor = tutors.find((tutor) => tutor._id === trainid);
+    const tutor = tutors.find((tutor) => tutor._id === tutorId);
     setTutorInfo(tutor);
   };
 
@@ -59,9 +62,39 @@ const Appointment = () => {
     }
   }
 
+  const bookAppointment = async ()=>{
+    if (!token) {
+      toast.warn('login to book appointment')
+      return navigate('/login')
+    }
+
+    try {
+      const date = tutorSlots[slotIndex][0].datetime
+
+      let day = date.getDate()
+      let month = date.getMonth()+1
+      let year = date.getFullYear()
+
+      const slotDate = day + "_" + month + "_" + year
+
+      const {data} = await axios.post( backendUrl + '/api/user/book-appointment', {tutorId , slotDate , slotTime} , {headers:{token}})
+      if (data.success) {
+        toast.success(data.message)
+        getTutorsData()
+        navigate('/my-appointment')
+      }else{
+        toast.error(data.message)
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error(error.message)
+    }
+  }
+  
+
   useEffect(() => {
     fetchTutorInfo();
-  }, [tutors, trainid]);
+  }, [tutors, tutorId]);
 
   useEffect(()=>{
     getAvailableSlots()
@@ -124,12 +157,12 @@ const Appointment = () => {
             </p>
           ))}
         </div>
-        <button className='bg-primary text-white text-sm font-light px-14 py-3 rounded-full my-6 '>
+        <button onClick={bookAppointment} className='bg-primary text-white text-sm font-light px-14 py-3 rounded-full my-6 '>
           Book an appointment
         </button>
       </div>
       {/* -----------------------Listing related trainers---------------------------------- */}
-      <RelatedTrainers trainid = {trainid} speciality={tutorInfo.speciality}/>
+      <RelatedTrainers tutorId = {tutorId} speciality={tutorInfo.speciality}/>
     </div>
   );
 };
