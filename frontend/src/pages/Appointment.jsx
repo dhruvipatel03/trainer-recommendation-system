@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const Appointment = () => {
   const { tutorId } = useParams();
-  const { tutors , currencySymbol , backendUrl , token , getTutorsData } = useContext(AppContext);
+  const { tutors , currencySymbol } = useContext(AppContext);
   const daysOfWeek = ['SUN' , 'MON' , 'TUE' , 'WED' , 'THU' , 'FRI' , 'SAT']
   const navigate = useNavigate()
 
@@ -62,35 +62,6 @@ const Appointment = () => {
     }
   }
 
-  const bookAppointment = async ()=>{
-    if (!token) {
-      toast.warn('login to book appointment')
-      return navigate('/login')
-    }
-
-    try {
-      const date = tutorSlots[slotIndex][0].datetime
-
-      let day = date.getDate()
-      let month = date.getMonth()+1
-      let year = date.getFullYear()
-
-      const slotDate = day + "_" + month + "_" + year
-
-      const {data} = await axios.post( backendUrl + '/api/user/book-appointment', {tutorId , slotDate , slotTime} , {headers:{token}})
-      if (data.success) {
-        toast.success(data.message)
-        getTutorsData()
-        navigate('/my-appointment')
-      }else{
-        toast.error(data.message)
-      }
-    } catch (error) {
-      console.log(error)
-      toast.error(error.message)
-    }
-  }
-  
 
   useEffect(() => {
     fetchTutorInfo();
@@ -157,7 +128,7 @@ const Appointment = () => {
             </p>
           ))}
         </div>
-        <button onClick={bookAppointment} className='bg-primary text-white text-sm font-light px-14 py-3 rounded-full my-6 '>
+        <button className='bg-primary text-white text-sm font-light px-14 py-3 rounded-full my-6 '>
           Book an appointment
         </button>
       </div>

@@ -10,6 +10,5 @@ userRouter.post('/login' , loginUser)
 
 userRouter.get('/get-profile',getprofile)
 userRouter.post('/update-profile',upload.single('image'),updateProfile)
-userRouter.post('/book-appointment',bookAppointment)
 
 export default userRouter
