@@ -43,7 +43,7 @@ const [userData , setUserData] = useState(false)
         }
     }
     const value = {
-        tutors ,
+        tutors, getTutorsData,
         currencySymbol,
         token,setToken,
         backendUrl,
