@@ -211,15 +211,34 @@ const updateProfile = async (req, res) => {
 // API to book appointment (after adding consoe.log to the above code, check in the terminal after booking an appointment.) 
 const bookAppointment = async (req, res) => {
   try {
-    console.log("Request Body:", req.body);
+    console.log("Headers Received:", req.headers); // Debugging
 
-    const { userId, tutorId, slotDate, slotTime } = req.body;
+    const token = req.headers.token; // Extract token from headers
+    if (!token) {
+      return res.json({ success: false, message: "Token is missing" });
+    }
 
-    if (!userId || !tutorId || !slotDate || !slotTime) {
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET);
+      console.log("Decoded Token:", decoded); // Debugging
+    } catch (error) {
+      return res.json({ success: false, message: "Invalid token" });
+    }
+
+    const userId = decoded.id; // Extract user ID from token
+    if (!userId) {
+      return res.json({ success: false, message: "User ID missing in token" });
+    }
+
+    const { tutorId, slotDate, slotTime } = req.body;
+
+    if (!tutorId || !slotDate || !slotTime) {
       return res.json({ success: false, message: "Missing required fields" });
     }
 
-    const tutorData = await tutorModel.findById(tutorId).select('-password');
+    // Fetch tutor details
+    const tutorData = await tutorModel.findById(tutorId).select("-password");
     if (!tutorData) {
       return res.json({ success: false, message: "Tutor not found" });
     }
@@ -228,9 +247,8 @@ const bookAppointment = async (req, res) => {
       return res.json({ success: false, message: "Tutor not available" });
     }
 
-    let slots_booked = tutorData.slots_booked || {};
-
     // Check for slot availability
+    let slots_booked = tutorData.slots_booked || {};
     if (!slots_booked[slotDate]) {
       slots_booked[slotDate] = [];
     }
@@ -239,11 +257,13 @@ const bookAppointment = async (req, res) => {
     }
     slots_booked[slotDate].push(slotTime);
 
-    const userData = await userModel.findById(userId).select('-password');
+    // Fetch user details
+    const userData = await userModel.findById(userId).select("-password");
     if (!userData) {
       return res.json({ success: false, message: "User not found" });
     }
 
+    // Create appointment data
     const appointmentData = {
       userId,
       tutorId,
@@ -255,9 +275,11 @@ const bookAppointment = async (req, res) => {
       date: Date.now(),
     };
 
+    // Save new appointment
     const newAppointment = new appointmentModel(appointmentData);
     await newAppointment.save();
 
+    // Update tutor slots
     await tutorModel.findByIdAndUpdate(tutorId, { slots_booked });
 
     res.json({ success: true, message: "Appointment booked" });
@@ -266,6 +288,8 @@ const bookAppointment = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+
 
 
 export { registerUser, loginUser, getprofile , updateProfile, bookAppointment };

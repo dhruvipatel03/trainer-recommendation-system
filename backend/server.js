@@ -27,7 +27,7 @@ app.use('/api/user',userRouter)
 
 
 app.get('/', (req, res) => {
-    res.send('Api working chahna')
+    res.send('Api working')
 });
 
 app.listen(port, () => console.log(`Server started`,port))

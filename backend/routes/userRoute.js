@@ -1,7 +1,6 @@
 import express from 'express'
 import { registerUser , loginUser, getprofile , updateProfile, bookAppointment } from '../controllers/userController.js'
 import upload from '../middlewares/multer.js'
-import authUser from '../middlewares/authUser.js'
 
 const userRouter = express.Router()
 
