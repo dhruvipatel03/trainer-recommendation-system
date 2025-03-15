@@ -289,7 +289,24 @@ const bookAppointment = async (req, res) => {
   }
 };
 
+const listAppointment = async (req, res) => {
+  try {
+    const { userId } = req.query; // Extract userId from query params
 
+    if (!userId) {
+      return res.status(400).json({ success: false, message: "User ID is required" });
+    }
 
+    const appointments = await appointmentModel.find({ userId });
 
-export { registerUser, loginUser, getprofile , updateProfile, bookAppointment };
+    console.log("Fetched Appointments:", appointments);
+
+    res.json({ success: true, appointments });
+
+  } catch (error) {
+    console.log("Error:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export { registerUser, loginUser, getprofile , updateProfile, bookAppointment, listAppointment };
