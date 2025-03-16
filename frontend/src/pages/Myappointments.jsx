@@ -6,7 +6,7 @@ import { jwtDecode } from 'jwt-decode';
 
 const Myappointments = () => {
 
-  const { backendUrl, token } = useContext(AppContext)
+  const { backendUrl, token, getTutorsData } = useContext(AppContext)
 
   const [appointments, setAppointments] = useState([])
   const months = ["","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -65,6 +65,7 @@ const cancelAppointment = async (appointmentId) => {
     if (data.success) {
       toast.success(data.message);
       getUserAppointments();
+      getTutorsData();
     } else {
       toast.error(data.message);
     }
