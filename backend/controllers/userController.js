@@ -353,4 +353,10 @@ const cancelAppointment = async (req, res) => {
   }
 };
 
+
+// API to make payment of appointment using razorpay
+const paymentRazorpay = async (req, res) => {
+  
+}
+
 export { registerUser, loginUser, getprofile , updateProfile, bookAppointment, listAppointment, cancelAppointment };
