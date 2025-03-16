@@ -309,4 +309,48 @@ const listAppointment = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser, getprofile , updateProfile, bookAppointment, listAppointment };
+
+
+// API to cancel appointment 
+const cancelAppointment = async (req, res) => {
+  try {
+    const { userId, appointmentId } = req.body;
+
+    if (!userId || !appointmentId) {
+      return res.status(400).json({ success: false, message: 'Missing required parameters' });
+    }
+
+    const appointmentData = await appointmentModel.findById(appointmentId);
+
+    if (!appointmentData) {
+      return res.status(404).json({ success: false, message: 'Appointment not found' });
+    }
+
+    // Ensure user is authorized to cancel this appointment
+    if (appointmentData.userId.toString() !== userId) { 
+      return res.status(403).json({ success: false, message: 'Unauthorized action' });
+    }
+
+    // Mark appointment as cancelled
+    await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+
+    // Releasing tutor slot
+    const { tutorId, slotDate, slotTime } = appointmentData
+
+    const tutorData = await tutorModel.findById(tutorId)
+
+    let slots_booked = tutorData.slots_booked
+
+    slots_booked[slotDate] = slots_booked[slotDate].filter(e => e !== slotTime)
+
+    await tutorModel.findByIdAndUpdate(tutorId, {slots_booked})
+
+    res.json({ success: true, message: 'Appointment Cancelled' });
+
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export { registerUser, loginUser, getprofile , updateProfile, bookAppointment, listAppointment, cancelAppointment };
