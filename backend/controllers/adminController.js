@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import { v2 as cloudinary } from 'cloudinary';
 import tutorModel from "../models/tutorModel.js"
 import jwt from 'jsonwebtoken'
+import appointmentModel from "../models/appointmentModel.js";
 
 
 // API for adding tutor
@@ -94,6 +95,19 @@ const allTutors = async (req, res) => {
         console.error("Error fetching tutors:", error);
         res.status(500).json({ success: false, message: error.message });
     }
-};
+}
+//API to get all appointments list
+const appointmentsAdmin = async(req , res)=>{
+    try {
+        const appointments = await appointmentModel.find({})
+        res.json({success:true,appointments})
+    } catch (error) {
+        console.error("Error fetching tutors:", error);
+        res.status(500).json({ success: false, message: error.message });
+    }
+}
 
-export {addtutor,loginAdmin,allTutors}
+//API for appointment cancellation
+
+
+export {addtutor,loginAdmin,allTutors,appointmentsAdmin}
