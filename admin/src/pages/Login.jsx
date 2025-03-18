@@ -13,30 +13,30 @@ const Login = () => {
 
     const {setAToken, backendUrl} = useContext(AdminContext) 
 
-    const onSubmitHandler = async(event) =>{
-        event.preventDefault()
-
+    const onSubmitHandler = async(event) => {
+        event.preventDefault();
+        console.log("Submitting login request..."); 
+    
         try {
-             
-            if (state === 'Admin'){
-
-               const {data} = await axios.post(backendUrl + '/api/admin/login', {email, password})
-               if(data.success){
-                   localStorage.setItem('aToken', data.token)
-                   setAToken(data.token)
-                }else{
-                    toast.error(data.message)
+            if (state === 'Admin') {
+                console.log("Backend URL:", backendUrl); 
+                const { data } = await axios.post(backendUrl + '/api/admin/login', { email, password });
+                
+                if (data.success) {
+                    localStorage.setItem('aToken', data.token);
+                    setAToken(data.token);
+                    console.log("Login Successful:", data);
+                } else {
+                    console.log("Login Failed:", data.message); 
+                    toast.error(data.message);
                 }
-            }  else{
-
-
             }
-
-        } catch(error){
-
+        } catch (error) {
+            console.error("Login Error:", error); 
+            toast.error("Something went wrong. Please try again.");
         }
-    }
-
+    };
+    
   return (
     <form onSubmit={onSubmitHandler} className='min-h-[100vh] flex items-center'>
         <div className='flex flex-col gap-3 m-auto items-start p-5 min-w-[340px] sm:min-w-80 border rounded-xl text-[#5E5E5E] text-sm shadow-lg'>

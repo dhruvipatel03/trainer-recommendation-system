@@ -96,18 +96,4 @@ const allTutors = async (req, res) => {
     }
 };
 
-
-// const allTutors = async (req, res) => {
-//     try {
-        
-//         const tutors = await tutorModel.find({}).select('-password')
-//         res.json({success:true, tutors})
-
-//     } catch (error) {
-//         console.log(error)
-//         res.json({success:false,message:error.message}) 
-//     }
-// }
-
-
 export {addtutor,loginAdmin,allTutors}
