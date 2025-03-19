@@ -4,6 +4,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import tutorModel from "../models/tutorModel.js"
 import jwt from 'jsonwebtoken'
 import appointmentModel from "../models/appointmentModel.js";
+import userModel from "../models/userModel.js";
 
 
 // API for adding tutor
@@ -108,6 +109,61 @@ const appointmentsAdmin = async(req , res)=>{
 }
 
 //API for appointment cancellation
+const appointmentCancel= async (req, res) => {
+  try {
+    const {appointmentId } = req.body;
+
+    if ( !appointmentId) {
+      return res.status(400).json({ success: false, message: 'Missing required parameters' });
+    }
+
+    const appointmentData = await appointmentModel.findById(appointmentId);
+
+    if (!appointmentData) {
+      return res.status(404).json({ success: false, message: 'Appointment not found' });
+    }
+
+    // Mark appointment as cancelled
+    await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+
+    // Releasing tutor slot
+    const { tutorId, slotDate, slotTime } = appointmentData
+
+    const tutorData = await tutorModel.findById(tutorId)
+
+    let slots_booked = tutorData.slots_booked
+
+    slots_booked[slotDate] = slots_booked[slotDate].filter(e => e !== slotTime)
+
+    await tutorModel.findByIdAndUpdate(tutorId, {slots_booked})
+
+    res.json({ success: true, message: 'Appointment Cancelled' });
+
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+}
+//API to get Dashboard data for admin panel
+const adminDashboard = async (req , res) =>{
+    try {
+        const tutors = await tutorModel.find({})
+        const users = await userModel.find({})
+        const appointments = await appointmentModel.find({})
+        const dashData = {
+            tutors:tutors.length,
+            appointments:appointments.length,
+            students:users.length,
+            latestAppointments:appointments.reverse().slice(0,5)
+        }
+        res.json({success:true , dashData})
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ success: false, message: error.message });
+    }
+}
 
 
-export {addtutor,loginAdmin,allTutors,appointmentsAdmin}
+
+
+export {addtutor,loginAdmin,allTutors,appointmentsAdmin , appointmentCancel , adminDashboard}

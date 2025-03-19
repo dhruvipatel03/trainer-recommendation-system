@@ -4,7 +4,7 @@ import { AppContext } from "../../context/AppContext";
 import { assets } from "../../assets/assets";
 
 const AllAppointments = () => {
-  const { aToken, appointments, getAllAppointments} = useContext(AdminContext);
+  const { aToken, appointments, getAllAppointments , cancelAppointment} = useContext(AdminContext);
   const { calculateAge, slotDateFormat, currency } = useContext(AppContext);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const AllAppointments = () => {
         All Appointments
       </p>
 
-      <div className="bg-white border border-gray-300 rounded-md text-sm max-h-[80vh] min-h-[60vh] overflow-y-auto">
+      <div className="bg-white border border-gray-300 rounded-md text-sm overflow-y-auto">
         {/* Table Header */}
         <div className="hidden sm:grid grid-cols-[0.5fr_2fr_0.8fr_2.5fr_2fr_1fr_1fr] gap-4 py-3 px-6 bg-gray-100 border-b border-gray-300 font-semibold text-gray-600">
           <p>#</p>
@@ -72,8 +72,8 @@ const AllAppointments = () => {
             </p>
             {item.cancelled
             ? <p className=" text-center text-red-400 text-xs font-medium">Cancelled</p>
-            : <div className="flex justify-center items-center">
-            <img
+            : <div  className="flex justify-center items-center">
+            <img onClick={()=>cancelAppointment(item._id)}
               className="w-10 cursor-pointer"
               src={assets.cancel_icon}
               alt=""
