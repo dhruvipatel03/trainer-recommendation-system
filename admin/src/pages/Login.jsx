@@ -3,6 +3,7 @@ import {assets} from '../assets/assets'
 import {AdminContext} from '../context/AdminContext'
 import axios from 'axios'
 import {toast} from 'react-toastify'
+import { TutorContext } from '../context/TutorContext'
 
 const Login = () => {
 
@@ -12,6 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const {setAToken, backendUrl} = useContext(AdminContext) 
+    const {setTToken} = useContext(TutorContext)
 
     const onSubmitHandler = async(event) => {
         event.preventDefault();
@@ -26,6 +28,18 @@ const Login = () => {
                     localStorage.setItem('aToken', data.token);
                     setAToken(data.token);
                     console.log("Login Successful:", data);
+                } else {
+                    console.log("Login Failed:", data.message); 
+                    toast.error(data.message);
+                }
+            }
+            else{
+                const {data} = await axios.post(backendUrl + '/api/tutor/login' , {email , password})
+                if (data.success) {
+                    localStorage.setItem('tToken', data.token);
+                    setTToken(data.token);
+                    console.log(data.token);
+                    // console.log("Login Successful:", data);
                 } else {
                     console.log("Login Failed:", data.message); 
                     toast.error(data.message);
