@@ -119,9 +119,11 @@ const Appointment = () => {
     fetchTutorInfo();
   }, [tutors, tutorId]);
 
-  useEffect(()=>{
-    getAvailableSlots()
-  },[tutorInfo])
+  useEffect(() => {
+    if (tutorInfo) {
+      getAvailableSlots();
+    }
+  }, [tutorInfo]);
 
   useEffect(() => {
     console.log(tutorSlots);
