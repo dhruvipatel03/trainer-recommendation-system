@@ -112,5 +112,62 @@ const appointmentCancel = async(req , res)=>{
     }
 }
 
-export { changeAvailability, tutorList , loginTutor ,appointmentsTutor , appointmentComplete , appointmentCancel };
+//API to get dashboard data for tutor panel
+const tutorDashboard = async(req , res ) =>{
+    try {
+        const {tutorId} = req.body
+        const appointments = await appointmentModel.find({tutorId})
+
+        let earnings = 0
+        appointments.map((item)=>{
+            if (item.isCompleted || item.payment) {
+                earnings += item.amount 
+            }
+        })
+
+        let students = []
+        appointments.map((item)=>{
+            if(!students.includes(item.userId))
+                students.push(item.userId)
+        })
+
+        const dashData = {
+            earnings , 
+            appointments:appointments.length,
+            students:students.length,
+            latestAppointments:appointments.reverse().slice(0,5)
+        }
+        res.json({success:true , dashData})
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: error.message }); 
+    }
+}
+
+//API to get tutor data
+const tutorProfile = async(req , res)=>{
+    try {
+        const {tutorId} = req.body
+        const profileData = await tutorModel.findById(tutorId).select('-password')
+
+        res.json({success:true , profileData})
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: error.message }); 
+    }
+}
+
+//Api to update tutor profile
+const updateTutorProfile = async(req , res)=>{
+    try {
+        const {tutorId , fees , address , available } = req.body
+        await tutorModel.findByIdAndUpdate(tutorId , {fees , address , available})
+        res.json({success:true , message:'Profile updated'})
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+export { changeAvailability, tutorList , loginTutor ,appointmentsTutor , appointmentComplete , appointmentCancel , tutorDashboard , tutorProfile  , updateTutorProfile };
 
