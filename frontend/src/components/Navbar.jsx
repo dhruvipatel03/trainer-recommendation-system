@@ -19,8 +19,8 @@ const Navbar = () => {
     }
    
   return (
-    <div className='flex items-center justify-between text-sm h-20 py-2 mb-2 border-b border-b-gray-400'>
-         <img onClick={()=>navigate('/')} className='W-60 h-10 cursor-pointer' src={logo} alt="Logo"/> 
+    <div className='flex items-center justify-between text-medium h-20 py-2 mb-2  border-b border-b-gray-400'>
+         <img onClick={()=>navigate('/')} className='w-65 h-20 object-contain cursor-pointer  ' src={logo} alt="Logo"/> 
         <ul className='hidden md:flex items-start gap-5 font-medium'>
             <NavLink to='/'>
                 <li className='py-1'>HOME</li>
@@ -45,7 +45,7 @@ const Navbar = () => {
                 ? <div className='flex items-center gap-2 cursor-pointer group relative'>
                     <img className='w-8 rounded-full' src={userData.image}alt="" />
                     <img className='w-2.5' src={dropdownIcon} alt="" />
-                    <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
+                    <div className='absolute top-0 right-0 pt-14 text-xl font-medium text-gray-600 z-20 hidden group-hover:block'>
                         <div className='min-width-48 bg-stone-100 rounded flex flex-col gap-4 p-4 '>
                             <p onClick={()=>navigate('Myprofile')} className='hover:text-black cursor-pointer'>My Profile</p>
                             <p onClick={()=>navigate('Myappointments')} className='hover:text-black cursor-pointer'>Appointments</p>
