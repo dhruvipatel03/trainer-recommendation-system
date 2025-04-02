@@ -5,163 +5,134 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const AddTutor = () => {
-
   const [tutImg, setTutImg] = useState(null);
-  const [name , setName] =useState('')
-  const [email , setEmail] =useState('')
-  const [password , setPassword] =useState('')
-  const [experience , setExperience] =useState('1 year')
-  const [fees , setFees] =useState('')
-  const [about, setAbout] =useState('')
-  const [speciality , setspeciality] =useState('Biology')
-  const [degree , setDegree] =useState('')
-  const [address1 , setAddress1] =useState('')
-  const [address2 , setAddress2] =useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [experience, setExperience] = useState("1 year");
+  const [fees, setFees] = useState("");
+  const [about, setAbout] = useState("");
+  const [speciality, setSpeciality] = useState("Biology");
+  const [degree, setDegree] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
 
-  const {backendUrl , aToken} = useContext(AdminContext) 
-  
-  const onSubmitHandler = async(event) =>{
-    event.preventDefault()
+  const { backendUrl, aToken } = useContext(AdminContext);
 
-    try{
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    try {
       if (!tutImg) {
-        return toast.error('Image not selected')
+        return toast.error("Image not selected");
       }
 
-      const formData = new FormData()
-      formData.append('image',tutImg)
-      formData.append('name',name)
-      formData.append('email',email)
-      formData.append('password',password)
-      formData.append('experience',experience)
-      formData.append('fees',Number(fees))
-      formData.append('about',about)
-      formData.append('speciality',speciality)
-      formData.append('degree',degree)
-      formData.append('address',JSON.stringify({line1:address1 , line2:address2}))
+      const formData = new FormData();
+      formData.append("image", tutImg);
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("experience", experience);
+      formData.append("fees", Number(fees));
+      formData.append("about", about);
+      formData.append("speciality", speciality);
+      formData.append("degree", degree);
+      formData.append(
+        "address",
+        JSON.stringify({ line1: address1, line2: address2 })
+      );
 
-      //console log formdata
-      formData.forEach((value,key)=>{
-        console.log(`${key}:${value}`);
-      })
-      const {data} = await axios.post(backendUrl + '/api/admin/add-tutor',formData,
-        {headers : { aToken }
-      })
+      const { data } = await axios.post(
+        backendUrl + "/api/admin/add-tutor",
+        formData,
+        { headers: { aToken } }
+      );
+
       if (data.success) {
-        toast.success(data.message)
-        setTutImg(false)
-        setName('')
-        setPassword('')
-        setEmail('')
-        setAddress1('')
-        setAddress2('')
-        setDegree('')
-        setAbout('')
-        setFees('')
-
+        toast.success(data.message);
+        setTutImg(null);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setExperience("1 year");
+        setFees("");
+        setAbout("");
+        setSpeciality("Biology");
+        setDegree("");
+        setAddress1("");
+        setAddress2("");
+      } else {
+        toast.error(data.message);
       }
-      else{
-        toast.error(data.message)
-      }
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
     }
-    catch(error){
-      toast.error(error.message)
-      console.log(error)
-    }
-  }
-
+  };
 
   return (
-    <form onSubmit={onSubmitHandler} className="m-5 w-full ">
-      <p className="mb-3 text-lg font-medium">Add Tutor</p>
-      <div className="bg-white px-8 py-8 border rounded border-gray-300 w-full max-w-4xl max-h-[80vh] overflow-y-scroll">
-        <div className="flex items-center gap-4 mb-8 text-gray-500">
-          <label htmlFor="tut-img">
-            <img className="cursor-pointer w-16 bg-gray-100 rounded-full" src={tutImg ? URL.createObjectURL(tutImg) : assets.upload_area} alt="" />
+    <form onSubmit={onSubmitHandler} className="m-5 w-full flex flex-col items-center">
+      <p className="mb-4 text-2xl font-semibold text-gray-700">Add Tutor</p>
+      <div className="bg-white px-10 py-8 border border-gray-400 rounded-2xl shadow-lg w-full max-w-3xl">
+        <div className="flex flex-col items-center gap-4 mb-6 text-gray-600">
+          <label htmlFor="tut-img" className="cursor-pointer">
+            <img
+              className="w-20 h-20 bg-gray-100 rounded-full shadow-md object-cover"
+              src={tutImg ? URL.createObjectURL(tutImg) : assets.upload_area}
+              alt="Upload"
+            />
           </label>
-          <input onChange={(e)=> setTutImg(e.target.files[0])} type="file" id="tut-img" hidden />
-          <p>
-            Upload tutor <br /> picture
-          </p>
+          <input
+            onChange={(e) => setTutImg(e.target.files[0])}
+            type="file"
+            id="tut-img"
+            hidden
+          />
+          <p className="text-sm">Upload Tutor Picture</p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start gap-10 text-gray-600">
-          <div className="w-full lg:flex-1 flex flex-col gap-4">
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Tutor name</p>
-              <input onChange={(e)=>setName(e.target.value)} value={name} className="border border-gray-400 rounded px-3 py-2" type="text" placeholder="Name" required />
-            </div>
-
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Tutor Email</p>
-              <input onChange={(e)=>setEmail(e.target.value)} value={email} className="border border-gray-400  rounded px-3 py-2" type="email" placeholder="Email" required />
-            </div>
-
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Tutor password</p>
-              <input onChange={(e)=>setPassword(e.target.value)} value={password} className="border border-gray-400  rounded px-3 py-2" type="password" placeholder="Password" required />
-            </div>
-
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Experience</p>
-              <select onChange={(e)=>setExperience(e.target.value)} value={experience} className="border border-gray-400  rounded px-3 py-2" name="" id="first-select">
-                <option value="1 year">1 year</option>
-                <option value="2 year">2 year</option>
-                <option value="3 year">3 year</option>
-                <option value="4 year">4 year</option>
-                <option value="5 year">5 year</option>
-                <option value="6 year">6 year</option>
-                <option value="7 year">7 year</option>
-                <option value="8 year">8 year</option>
-                <option value="9 year">9 year</option>
-                <option value="10 year">10 year</option>
-                <option value="10+ year">10+ year</option>
-              </select>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Fees</p>
-              <input onChange={(e)=>setFees(e.target.value)} value={fees} className="border border-gray-400  rounded px-3 py-2" type="number" placeholder="Fees" required />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+          <div className="flex flex-col gap-2">
+            <label>Name</label>
+            <input className="input-field rounded-lg border border-gray-400" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
-
-          <div className="w-full lg:flex-1 flex flex-col gap-4">
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Speciality</p>
-              <select onChange={(e)=>setspeciality(e.target.value)} value={speciality} className="border border-gray-400  rounded px-3 py-2" name="" id="second-select">
-                <option value="Biology">Biology</option>
-                <option value="Physics">Physics</option>
-                <option value="Mathematics">Mathematics</option>
-                <option value="Literature">Literature</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Psychology">Psychology</option>
-                <option value="History">History</option>
-                <option value="Environmental Science">
-                  Environmental Science
-                </option>
-                <option value="Computer Science">Computer Science</option>
-              </select>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Education</p>
-              <input onChange={(e)=>setDegree(e.target.value)} value={degree} className="border border-gray-400  rounded px-3 py-2" type="text" placeholder="Education" required />
-            </div>
-
-            <div className="flex-1 flex flex-col gap-1">
-              <p>Address</p>
-              <input onChange={(e)=>setAddress1(e.target.value)} value={address1} className="border border-gray-400  rounded px-3 py-2" type="text" placeholder="address 1" required />
-              <input onChange={(e)=>setAddress2(e.target.value)} value={address2}  className="border border-gray-400  rounded px-3 py-2" type="text" placeholder="address 2" required />
-            </div>
+          <div className="flex flex-col gap-2">
+            <label>Email</label>
+            <input className="input-field rounded-lg border border-gray-400" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Password</label>
+            <input className="input-field rounded-lg border border-gray-400" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Experience</label>
+            <select className="input-field rounded-lg border border-gray-400" value={experience} onChange={(e) => setExperience(e.target.value)}>
+              {Array.from({ length: 11 }, (_, i) => (
+                <option key={i} value={`${i + 1} year`}>{`${i + 1} year`}</option>
+              ))}
+            </select>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Fees</label>
+            <input className="input-field rounded-lg border border-gray-400" type="number" value={fees} onChange={(e) => setFees(e.target.value)} required />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Speciality</label>
+            <select className="input-field rounded-lg border border-gray-400" value={speciality} onChange={(e) => setSpeciality(e.target.value)}>
+              {["Biology", "Physics", "Mathematics", "Literature", "Chemistry", "Psychology", "History", "Environmental Science", "Computer Science"].map((spec) => (
+                <option key={spec} value={spec}>{spec}</option>
+              ))}
+            </select>
           </div>
         </div>
+
 
         <div>
           <p className="mt-4 mb-2">About Tutor</p>
           <textarea onChange={(e)=>setAbout(e.target.value)} value={about} className="w-full px-4 pt-2 border border-gray-400  rounded" placeholder="Write about tutor" rows={5}  required />
         </div>
 
-        <button type="submit" className="bg-primary px-10 py-3 mt-4 text-white rounded-full cursor-pointer ">Add tutor</button>
+        <button type="submit" className="bg-[#6b5b95] text-white px-6 py-3 rounded-full shadow-md mt-6 cursor-pointer hover:bg-[#6b5b95] transition">Add Tutor</button>
       </div>
     </form>
   );
