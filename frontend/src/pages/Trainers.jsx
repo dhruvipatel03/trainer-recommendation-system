@@ -40,7 +40,7 @@ const Trainers = () => {
             <p
               key={subject}
               onClick={() => (speciality === subject ? navigate("/tutors") : navigate(`/tutors/${subject}`))}
-              className={`w-full sm:w-[16vw] pl-3 py-2 border border-gray-300 rounded-lg transition-all cursor-pointer hover:bg-indigo-200 ${
+              className={`w-full sm:w-[16vw] pl-3 py-2 border border-gray-300 rounded-lg transition-all cursor-pointer hover:bg-[#6b5b95] ${
                 speciality === subject ? "bg-indigo-100 text-black" : "bg-white hover:shadow-md"
               }`}
             >
